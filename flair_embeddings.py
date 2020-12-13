@@ -17,14 +17,17 @@ Original file is located at
 
 !pip install flair
 
-from flair.embeddings import WordEmbeddings, FlairEmbeddings, StackedEmbeddings
+from flair.embeddings import WordEmbeddings, FlairEmbeddings, StackedEmbeddings, TransformerWordEmbeddings
 
 # create a StackedEmbedding object that combines glove and forward/backward flair embeddings
 stacked_embeddings = StackedEmbeddings([
                                         WordEmbeddings('glove'),
-                                        FlairEmbeddings('news-forward'),
-                                        FlairEmbeddings('news-backward'),
+                                        FlairEmbeddings('news-forward-fast'),
+                                        FlairEmbeddings('news-backward-fast')
                                        ])
+
+with open('some.txt', 'r') as f:
+    s = f.read()
 
 we = {}
 
@@ -33,15 +36,9 @@ sentence = Sentence(s)
 
 # just embed a sentence using the StackedEmbedding as you would with any single embedding.
 stacked_embeddings.embed(sentence)
-
 # now check out the embedded tokens.
 for token in sentence:
     we[token.text] = token.embedding
-    # print(token)
-    # print(token.embedding)
-
-with open('some.txt', 'r') as f:
-    s = f.read()
 
 import pke
 
@@ -76,12 +73,10 @@ keyphrases = extractor.get_n_best(n=20)
 
 keyphrases
 
-we['great'].numpy().shape
-
 import torch
 def get_mean_emb(phrase):
     ws = phrase.split(" ")
-    vect = torch.zeros(4196)
+    vect = torch.zeros(list(we.values())[0].numpy().shape)
     c = 1
     for i in ws:
         try:
@@ -99,10 +94,17 @@ kmeans = KMeans(n_clusters=8, random_state=0).fit(X)
 kmeans.labels_
 # kmeans.cluster_centers_
 
+from sklearn.cluster import OPTICS
+import numpy as np
+X = np.array([   get_mean_emb(i) for i,j in keyphrases   ])
+clustering = OPTICS(min_samples=2).fit(X)
+clustering.labels_
+
 p = np.array(keyphrases)
 
-for i in range(10):
+for i in range(-1, 10):
     print(p[kmeans.labels_ == i])
+    # print(p[clustering.labels_ == i])
     print("  ")
 
 
@@ -115,12 +117,12 @@ for i in range(10):
 
 "Over the years, my household has tried multiple Bluetooth solutions for our hands-free communications needs. We\'ve had acceptable results from a solution integrated into GPS...but much of our regular driving doesn\'t include the need to load up a full-size GPS. We\'ve".replace("\'", "'")
 
-myString = ". ".join(df[df['asin'] == "B0014KLFN6"]['reviewText'])
+myString = ". ".join(df[df['asin'] == df['asin'].unique()[1223]]['reviewText'])
 with open('some.txt','w') as f:
     f.write(myString)
 myString
 
-df['asin'].unique()[334]
+
 
 import pandas as pd
 import gzip
@@ -140,16 +142,15 @@ def getDF(path):
 
 df = getDF('reviews_Cell_Phones_and_Accessories_5.json.gz')
 
-from flair.embeddings import TransformerDocumentEmbeddings
+from flair.data import Sentence
+sentence = Sentence("i am using multiple words like this here you can see multiple two times and like also two times")
 
-# init embedding
-embedding = TransformerDocumentEmbeddings('roberta-base')
+# just embed a sentence using the StackedEmbedding as you would with any single embedding.
+stacked_embeddings.embed(sentence)
 
-# create a sentence
-sentence = Sentence('The grass is green .')
-
-# embed the sentence
-embedding.embed(sentence)
-
-print(sentence.embedding)
+# now check out the embedded tokens.
+for token in sentence:
+    we[token.text] = token.embedding
+    print(token)
+    print(token.embedding)
 
