@@ -65,7 +65,7 @@ And here are the clusters using our approach
 The final review tags :- 
 ![](ex2.png)
 
-**Another example** :- 
+Another example :- 
 
 Extracted keyphrases :- 
 ![](ex3.png)
@@ -73,7 +73,7 @@ Extracted keyphrases :-
 Clusters :- 
 ![](ex4.png)
 
-**One more example** :- 
+One more example :- 
 
 Extracted keyphrases :- 
 ![](ex5.png)
