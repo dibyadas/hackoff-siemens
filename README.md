@@ -56,32 +56,32 @@ The final cluster labels are the keyphrases with the highest PositionRank scores
 
 #### Results 
 
-Given example in the problem statement - 
+Given example in the problem statement - <br>
 ![](given.png)
 
-And here are the clusters using our approach
+And here are the clusters using our approach<br>
 ![](ex1.png)
 
-The final review tags :- 
+The final review tags :-<br>
 ![](ex2.png)
 
 Another example :- 
 
-Extracted keyphrases :- 
+Extracted keyphrases :- <br>
 ![](ex3.png)
 
-Clusters :- 
+Clusters :- <br>
 ![](ex4.png)
 
-One more example :- 
+One more example :- <br>
 
-Extracted keyphrases :- 
+Extracted keyphrases :- <br>
 ![](ex5.png)
 
-Clusters :- 
+Clusters :- <br>
 ![](ex6.png)
 
-The final review tags :- 
+The final review tags :- <br>
 ![](ex7.png)
 
 
