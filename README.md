@@ -57,32 +57,32 @@ The final cluster labels are the keyphrases with the highest PositionRank scores
 #### Results 
 
 Given example in the problem statement - 
-![[Pasted image 20201213151605.png]]
+![](given.png)
 
 And here are the clusters using our approach
-![[Pasted image 20201213151525.png]]
+![](ex1.png)
 
 The final review tags :- 
-![[Pasted image 20201213151534.png]]
+![](ex2.png)
 
 Another example :- 
 
 Extracted keyphrases :- 
-![[Pasted image 20201213153504.png]]
+![](ex3.png)
 
 Clusters :- 
-![[Pasted image 20201213153515.png]]
+![](ex4.png)
 
 One more example :- 
 
 Extracted keyphrases :- 
-![[Pasted image 20201213153555.png]]
+![](ex5.png)
 
 Clusters :- 
-![[Pasted image 20201213153609.png]]
+![](ex6.png)
 
 The final review tags :- 
-![[Pasted image 20201213153615.png]]
+![](ex7.png)
 
 
 ### Improvements
