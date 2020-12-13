@@ -85,6 +85,7 @@ The final review tags :- <br>
 ![](ex7.png)
 
 **One more example** :-
+
 Extracted keyphrases :- <br>
 ![](ex10.png)
 
