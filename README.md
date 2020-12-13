@@ -16,13 +16,13 @@ Example - "fingerprint scanner", "fingerprint reader", "fingerprint sensor" & "f
 
 #### Exploratory Data Analysis
 We only consider reviews with more than 1000 characters because then meaningful keyphrases can be extracted. 
-![](Pasted\ image\ 20201213145832.png)
+![](lenkde.png)
 
 Here is the word cloud of the good ratings :- 
-![](Pasted image 20201213145711.png)
+![](wc1.png)
 
 Here is the word cloud of the bad ratings :-
-![](Pasted image 20201213145717.png)
+![](wc2.png)
 
 
 #### Our Approach
