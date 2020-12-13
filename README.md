@@ -85,13 +85,13 @@ The final review tags :-
 ![](ex7.png)
 
 **One more example** :-
-Extracted keyphrases :- 
+Extracted keyphrases :- <br>
 ![](ex10.png)
 
-Clusters :- 
+Clusters :- <br>
 ![](ex9.png)
 
-The final review tags :- 
+The final review tags :- <br>
 ![](ex8.png)
 
 ### Improvements
