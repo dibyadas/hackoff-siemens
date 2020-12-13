@@ -16,13 +16,13 @@ Example - "fingerprint scanner", "fingerprint reader", "fingerprint sensor" & "f
 
 #### Exploratory Data Analysis
 We only consider reviews with more than 1000 characters because then meaningful keyphrases can be extracted. 
-![[Pasted image 20201213145832.png]]
+![](Pasted\ image\ 20201213145832.png)
 
 Here is the word cloud of the good ratings :- 
-![[Pasted image 20201213145711.png]]
+![](Pasted image 20201213145711.png)
 
 Here is the word cloud of the bad ratings :-
-![[Pasted image 20201213145717.png]]
+![](Pasted image 20201213145717.png)
 
 
 #### Our Approach
@@ -30,16 +30,17 @@ Our first step is to extract the keyphrases using PositionRank graph model.
 
 ### PositionRank
 * It is an unsupervised Graph-based model for keyphrase extraction 
-* We built a graph representation of the document where nodes are words that passes a Part-of-Speech filter
+* We built a graph representation of the document where nodes are words that passes a Part-of-Speech filter<br>
+for example `pos = {'NOUN', 'PROPN', 'ADJ'}`
 * Two nodes are connected if the words corresponding to these nodes co-occur within a window of contiguous tokens
 * The weight of an edge is computed based on the co-occurrence count of the two words within a window of successive tokens
 * Candidate weight calculation is done using a biased PageRank
 * Candidate selection is done using a syntactic PoS pattern for noun phrase extraction 
-for example `grammar = "NP: {<ADJ>*<NOUN|PROPN>+}"`, implying Keyphrase candidates are noun phrases that match the regular expression `(adjective)*(noun or proper noun)+`, of length up to three
+for example `grammar = "NP: {<ADJ>*<NOUN|PROPN>+}"`,<br>implying Keyphrase candidates are noun phrases that match the regular expression `(adjective)*(noun or proper noun)+`, of length up to three
 
 Some other keyword extraction methods tried out were
 * Unsupervised models
-    * YAKE 
+    * YAKE
  * Graph-based models
     * TopicRank
 
@@ -89,5 +90,9 @@ The final review tags :-
 * Use multilinugal model for supporting languages other than english
 * Use a better clustering methods
 
+### References
+* [pke](https://github.com/boudinfl/pke)
+* [yake](https://github.com/LIAAD/yake)
+* [flair](https://github.com/LIAAD/yake)
 
 ### Thank you!
